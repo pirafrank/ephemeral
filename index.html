@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+  You curious :P
+ -->
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ephemeral Text Editor</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    #editor {
+      font-size: 18px;
+      font-family: monospace;
+      min-height: 10em;
+      padding: 15px;
+      border: 2px solid #333333;
+      border-radius: 5px;
+      margin-left: 3vw;
+      margin-right: 3vw;
+      text-align: left;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      padding-top: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+  <script>
+    function cs() {
+      var size = document.getElementById("fontSelect").value;
+      document.getElementById("editor").style.fontSize = size + "px";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="top">
+    <p>
+      Just a prettier <code>contenteditable</code> div.
+      <strong>Content lives until you refresh the page</strong>.
+      Drag <a
+        href="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjwhLS0KICBZb3UgY3VyaW91cyA6UAogLS0+CjxodG1sIGxhbmc9ImVuIj4KCjxoZWFkPgogIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wIj4KICA8dGl0bGU+RXBoZW1lcmFsIFRleHQgRWRpdG9yPC90aXRsZT4KICA8c3R5bGU+CiAgICBib2R5IHsKICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsKICAgICAgbGluZS1oZWlnaHQ6IDEuNTsKICAgIH0KCiAgICAjZWRpdG9yIHsKICAgICAgZm9udC1zaXplOiAxOHB4OwogICAgICBmb250LWZhbWlseTogbW9ub3NwYWNlOwogICAgICBtaW4taGVpZ2h0OiAxMGVtOwogICAgICBwYWRkaW5nOiAxNXB4OwogICAgICBib3JkZXI6IDJweCBzb2xpZCAjMzMzMzMzOwogICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgIG1hcmdpbi1sZWZ0OiAzdnc7CiAgICAgIG1hcmdpbi1yaWdodDogM3Z3OwogICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICBvdmVyZmxvdy13cmFwOiBicmVhay13b3JkOwogICAgfQoKICAgIC5mb290ZXIgewogICAgICBwYWRkaW5nLXRvcDogMTBweDsKICAgICAgZm9udC1zaXplOiAwLjllbTsKICAgIH0KICA8L3N0eWxlPgogIDxzY3JpcHQ+CiAgICBmdW5jdGlvbiBjcygpIHsKICAgICAgdmFyIHNpemUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiZm9udFNlbGVjdCIpLnZhbHVlOwogICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiZWRpdG9yIikuc3R5bGUuZm9udFNpemUgPSBzaXplICsgInB4IjsKICAgIH0KICA8L3NjcmlwdD4KPC9oZWFkPgoKPGJvZHk+CiAgPGRpdiBjbGFzcz0idG9wIj4KICAgIDxwPgogICAgICBKdXN0IGEgcHJldHRpZXIgPGNvZGU+Y29udGVudGVkaXRhYmxlPC9jb2RlPiBkaXYuCiAgICAgIDxzdHJvbmc+Q29udGVudCBsaXZlcyB1bnRpbCB5b3UgcmVmcmVzaCB0aGUgcGFnZTwvc3Ryb25nPi4KICAgICAgPGJyPkZvbnQgc2l6ZQogICAgICA8c2VsZWN0IG5hbWU9ImZvbnRTZWxlY3QiIGlkPSJmb250U2VsZWN0IiBvbmNoYW5nZT0iY3MoKSI+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iMTIiPjEyPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iMTQiPjE0PC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iMTYiIHNlbGVjdGVkPSJzZWxlY3RlZCI+MTY8L29wdGlvbj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSIxOCI+MTg8L29wdGlvbj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSIyMCI+MjA8L29wdGlvbj4KICAgICAgPC9zZWxlY3Q+CiAgICA8L3A+CiAgPC9kaXY+CiAgPGRpdiBjb250ZW50ZWRpdGFibGUgaWQ9ImVkaXRvciI+CiAgPC9kaXY+CiAgPGRpdiBjbGFzcz0iZm9vdGVyIj4KICAgIE1hZGUgYnkgPGEgaHJlZj0iaHR0cHM6Ly90d2l0dGVyLmNvbS9waXJhZnJhbmsiPkBwaXJhZnJhbms8L2E+LiBObyBpZGVhIHdoeSBJIGRpZCB0aGlzLgogIDwvZGl2Pgo8L2JvZHk+CjwvYm9keT4KCjwvaHRtbD4=">ephemeral</a>
+      to your bookmarks for offline access.
+      <br>Font size
+      <select name="fontSelect" id="fontSelect" onchange="cs()">
+        <option value="12">12</option>
+        <option value="14">14</option>
+        <option value="16" selected="selected">16</option>
+        <option value="18">18</option>
+        <option value="20">20</option>
+      </select>
+    </p>
+  </div>
+  <div contenteditable id="editor">
+  </div>
+  <div class="footer">
+    Made by <a href="https://twitter.com/pirafrank">@pirafrank</a>. No idea why I did this.
+  </div>
+</body>
+</body>
+
+</html>
